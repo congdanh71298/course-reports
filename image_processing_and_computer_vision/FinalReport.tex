@@ -1,0 +1,115 @@
+
+\title{Research Summary}
+%\date{\today}
+
+\documentclass[12pt]{report}
+\usepackage{amsmath,amsxtra,amssymb,latexsym, amscd,amsthm}
+\usepackage{url}
+\usepackage{color}
+\usepackage[mathscr]{eucal}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,vietnamese]{babel}
+\usepackage[autostyle]{csquotes}
+\usepackage{balance}
+\usepackage[nottoc]{tocbibind}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{lipsum}
+\geometry{ a4paper, total={210mm,297mm},  left=20mm, right=20mm,  top=20mm, bottom=20mm }
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\renewcommand{\bibname}{References}
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{center}
+
+	\vspace*{3cm}
+	{\bf \LARGE BÁO CÁO ĐỒ ÁN}\\
+	\vspace*{2cm}
+	Tên đề tài:\\
+	{\bf \Large Open-Set Grounded Text-to-Image Generation}\\
+	\vspace{3cm}
+	{\Large Trường Đại Học Công Nghệ Thông Tin}\\
+	\vspace{5cm}
+	%{\Large DOAN DUY}\\
+	{\Large Tháng 8/2024}
+\end{center}
+%\thispagestyle{empty}
+
+\newpage
+\vspace*{5cm}
+\begin{center}
+	{\bf \Large Thông Tin Học Viên}\\
+	Tên HV: \tab Mã HV:\\
+	Nguyễn Công Danh \tab 230101033\\
+	\vspace{5cm}
+	{\bf \Large Giảng Viên Hướng Dẫn}\\
+	TS. Mai Tiến Dũng
+\end{center}
+
+%	\frontmatter
+\newpage
+\input {Acknowledgement}
+
+\tableofcontents
+\listoffigures
+\listoftables
+%\pagenumbering{arabic}
+\chapter{Giới thiệu}
+\section{Lý do chọn đề tài}
+Tiên phong trong lĩnh vực nghiên cứu:
+Đề tài này liên quan đến một phương pháp mới có tên là GLIGEN,
+cho phép tạo ra hình ảnh từ văn bản có tính năng kiểm soát cao.
+Phương pháp này mở rộng khả năng của các mô hình trước đó bằng cách cho phép sử dụng các thông tin đầu vào
+bổ sung như bounding box, keypoints, canny map, depth map, normal map, hed map và semantic map.
+
+Đóng góp lớn cho cộng đồng học thuật:
+GLIGEN đã được đánh giá và chứng minh có khả năng vượt trội so với các mô hình trước đây
+trong việc tạo hình ảnh dựa trên văn bản ở các nhiệm vụ mới và đa dạng,
+điều này giúp đóng góp lớn cho cộng đồng nghiên cứu trong việc nâng cao chất lượng
+và độ chính xác của các hệ thống tạo hình ảnh.
+
+Tính ứng dụng cao: Phương pháp GLIGEN không chỉ cải thiện về mặt lý thuyết
+mà còn có tiềm năng ứng dụng rộng rãi trong nhiều lĩnh vực như thiết kế đồ họa
+và tạo nội dung số.
+
+\section{Phát biểu bài toán}
+
+Bài toán trong bài báo này được phát biểu như sau:
+\begin{itemize}
+	\item Input: Đầu vào bao gồm một chú thích văn bản (caption)
+	      và các thông tin định vị (grounding information) như hộp giới hạn (bounding boxes),
+	      điểm mốc (keypoints), có thể được mô tả bằng văn bản hoặc hình ảnh tham chiếu.
+	\item Output: Đầu ra là hình ảnh được sinh ra dựa trên chú thích văn bản
+	      và các thông tin định vị, đảm bảo rằng hình ảnh này thể hiện chính xác các yếu tố
+	      và vị trí của chúng theo đầu vào đã cung cấp.
+\end{itemize}
+
+\section{Kết quả mong đợi}
+Kết quả mong đợi khi thực hiện đề tài này là tìm hiểu một phương pháp mới
+có khả năng tạo ra hình ảnh từ văn bản và thông tin định vị với độ chính xác cao.
+
+\section{Phạm vi/Giới hạn}
+Khi thực hiện đề tài này, em sẽ tập trung vào việc tìm hiểu phương pháp,
+cách cài đặt và sử dụng lại mô hình có sẵn.
+Không đi sâu vào việc nghiên cứu và phát triển mô hình mới.
+
+\chapter{Phương pháp}
+
+
+
+\newpage
+\input {References}
+\end{document}
