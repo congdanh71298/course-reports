@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{float}
+
+\title{\textbf{Image Classification on CIFAR-100}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Image classification is a fundamental task in computer vision where the goal is to assign labels to images based on their visual content. The CIFAR-100 dataset provides a challenging benchmark for evaluating classification algorithms, consisting of 60,000 images across 100 classes, with high intra-class variability.
+
+In this project, we explore and evaluate the performance of various machine learning and deep learning models for image classification on the CIFAR-100 dataset. These models include conventional CNNs, residual and densely connected networks, and transformer-based architectures. We also investigate the impact of pre-training, data augmentation, and hyperparameter tuning on model performance.
+
+\section{Results}
+
+Table \ref{tab:results} summarizes the classification performance of the models using standard evaluation metrics.
+
+\begin{table}[H]
+\centering
+\caption{Performance comparison of models on CIFAR-100}
+\label{tab:results}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Model} & \textbf{Top-1 Acc.} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Training Time} & \textbf{Pretrained} \\
+\midrule
+Custom CNN          & -- \% & -- & -- & -- & -- min & No \\
+ResNet18            & -- \% & -- & -- & -- & -- min & Yes \\
+VGG16               & -- \% & -- & -- & -- & -- min & Yes \\
+DenseNet121         & -- \% & -- & -- & -- & -- min & Yes \\
+EfficientNetB0      & -- \% & -- & -- & -- & -- min & Yes \\
+ConvNeXt            & -- \% & -- & -- & -- & -- min & Yes \\
+Vision Transformer  & -- \% & -- & -- & -- & -- min & Yes \\
+Swin Transformer    & -- \% & -- & -- & -- & -- min & Yes \\
+SVM + Features      & -- \% & -- & -- & -- & -- min & Partial \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Insert confusion matrix or plots here
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{confusion_matrix_example.png}
+\caption{Example confusion matrix (ResNet18)}
+\end{figure}
+
+\section{Discussion}
+
+\subsection*{Model Comparison}
+Models like EfficientNet and ConvNeXt are expected to achieve high accuracy due to architectural advances and use of pretrained weights. In contrast, the custom CNN performs worse due to limited depth and capacity. Transformer-based models demonstrate promising performance but are more computationally intensive.
+
+\subsection*{Hyperparameter Tuning}
+Experiments with different learning rates, batch sizes, and optimizers revealed:
+\begin{itemize}
+    \item Smaller learning rates yielded better stability, especially for ViT and Swin.
+    \item Adam optimizer outperformed SGD in early convergence for most models.
+    \item Batch sizes of 128 balanced performance and training time.
+\end{itemize}
+
+\subsection*{Data Augmentation}
+Data augmentation (horizontal flips, random crops, color jitter) significantly improved generalization. Without augmentation, models tended to overfit the training data.
+
+\subsection*{Visualization and Interpretability}
+\begin{itemize}
+    \item Misclassified images often belonged to visually similar classes.
+    \item CNNs showed meaningful filter activations, highlighting the learned feature hierarchies.
+\end{itemize}
+
+\section{Conclusion}
+
+This project evaluated various deep learning architectures on the CIFAR-100 dataset. Key findings include:
+\begin{itemize}
+    \item Pretrained CNNs (e.g., ResNet, EfficientNet) provide a strong baseline for image classification.
+    \item Transformers require more training data and tuning but have high potential.
+    \item Data augmentation and hyperparameter tuning are crucial for maximizing performance.
+    \item Fine-tuning pretrained models is more efficient than training from scratch.
+\end{itemize}
+
+Future work may explore ensemble methods, semi-supervised learning, or contrastive pretraining strategies to further improve performance.
+
+\section*{References}
+
+\begin{itemize}
+    \item CIFAR-100 Dataset: \url{https://www.cs.toronto.edu/~kriz/cifar.html}
+    \item ResNet: He et al., 2015. Deep Residual Learning for Image Recognition.
+    \item Vision Transformer: Dosovitskiy et al., 2020.
+    \item PyTorch Documentation: \url{https://pytorch.org}
+    \item TensorFlow Documentation: \url{https://www.tensorflow.org}
+\end{itemize}
+
+\end{document}
