@@ -29,19 +29,16 @@ Table \ref{tab:results} summarizes the classification performance of the models 
 \centering
 \caption{Performance comparison of models on CIFAR-100}
 \label{tab:results}
-\begin{tabular}{lcccccc}
+\begin{tabular}{lcccc}
 \toprule
-\textbf{Model} & \textbf{Top-1 Acc.} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Training Time} & \textbf{Pretrained} \\
+\textbf{Model} & \textbf{Top-1 Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} \\
 \midrule
-Custom CNN          & -- \% & -- & -- & -- & -- min & No \\
-ResNet18            & -- \% & -- & -- & -- & -- min & Yes \\
-VGG16               & -- \% & -- & -- & -- & -- min & Yes \\
-DenseNet121         & -- \% & -- & -- & -- & -- min & Yes \\
-EfficientNetB0      & -- \% & -- & -- & -- & -- min & Yes \\
-ConvNeXt            & -- \% & -- & -- & -- & -- min & Yes \\
-Vision Transformer  & -- \% & -- & -- & -- & -- min & Yes \\
-Swin Transformer    & -- \% & -- & -- & -- & -- min & Yes \\
-SVM + Features      & -- \% & -- & -- & -- & -- min & Partial \\
+Custom CNN          & -- \%     & --     & --     & --     \\
+DenseNet121         & 81.46\%   & 82.25\%& 81.46\%& 81.56\% \\
+EfficientNetB0      & 84.73\%   & 85.15\%& 84.73\%& 84.76\% \\
+ConvNeXt            & 88.32\%   & 88.93\%& 88.32\%& 88.35\% \\
+Vision Transformer  & 89.86\%   & 90.43\%& 89.86\%& 89.87\% \\
+Swin Transformer    & 89.08\%   & 89.56\%& 89.08\%& 89.08\% \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -50,13 +47,13 @@ SVM + Features      & -- \% & -- & -- & -- & -- min & Partial \\
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.6\textwidth]{confusion_matrix_example.png}
-\caption{Example confusion matrix (ResNet18)}
+\caption{Example confusion matrix (e.g., ResNet18 on CIFAR-100, 10-class subset)}
 \end{figure}
 
 \section{Discussion}
 
 \subsection*{Model Comparison}
-Models like EfficientNet and ConvNeXt are expected to achieve high accuracy due to architectural advances and use of pretrained weights. In contrast, the custom CNN performs worse due to limited depth and capacity. Transformer-based models demonstrate promising performance but are more computationally intensive.
+Among the evaluated models, the Vision Transformer (ViT) achieved the highest classification accuracy of 89.86\%, closely followed by the Swin Transformer and ConvNeXt, which also demonstrated excellent performance. DenseNet121 and EfficientNetB0 showed competitive results with good generalization capabilities, although they lagged slightly behind the transformer-based models.
 
 \subsection*{Hyperparameter Tuning}
 Experiments with different learning rates, batch sizes, and optimizers revealed:
@@ -79,8 +76,8 @@ Data augmentation (horizontal flips, random crops, color jitter) significantly i
 
 This project evaluated various deep learning architectures on the CIFAR-100 dataset. Key findings include:
 \begin{itemize}
-    \item Pretrained CNNs (e.g., ResNet, EfficientNet) provide a strong baseline for image classification.
-    \item Transformers require more training data and tuning but have high potential.
+    \item Pretrained transformer models (ViT and Swin) achieved the best performance, with ViT leading slightly.
+    \item ConvNeXt also provided strong performance with less complexity than ViT.
     \item Data augmentation and hyperparameter tuning are crucial for maximizing performance.
     \item Fine-tuning pretrained models is more efficient than training from scratch.
 \end{itemize}
