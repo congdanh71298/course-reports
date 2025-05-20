@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{caption}
 \usepackage{float}
+\usepackage{subcaption}
 
 \title{\textbf{Image Classification on CIFAR-100}}
 \author{}
@@ -33,27 +34,150 @@ Table \ref{tab:results} summarizes the classification performance of the models 
 \toprule
 \textbf{Model} & \textbf{Top-1 Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} \\
 \midrule
-Custom CNN          & -- \%     & --     & --     & --     \\
-DenseNet121         & 81.46\%   & 82.25\%& 81.46\%& 81.56\% \\
-EfficientNetB0      & 84.73\%   & 85.15\%& 84.73\%& 84.76\% \\
-ConvNeXt            & 88.32\%   & 88.93\%& 88.32\%& 88.35\% \\
-Vision Transformer  & 89.86\%   & 90.43\%& 89.86\%& 89.87\% \\
-Swin Transformer    & 89.08\%   & 89.56\%& 89.08\%& 89.08\% \\
+ConvNeXt            & 88.32\% & 88.93\% & 88.32\% & 88.35\% \\
+Vision Transformer  & 89.86\% & 90.43\% & 89.86\% & 89.87\% \\
+Swin Transformer    & 89.08\% & 89.56\% & 89.08\% & 89.08\% \\
+EfficientNetB0      & 84.74\% & 85.16\% & 84.74\% & 84.77\% \\
+DenseNet121         & 81.47\% & 82.27\% & 81.47\% & 81.58\% \\
+Custom CNN          & 47.27\% & 49.24\% & 47.27\% & 46.06\% \\
+ResNet18            & 80.05\% & 80.31\% & 80.05\% & 80.09\% \\
+VGG16               & 72.09\% & 73.92\% & 72.09\% & 72.03\% \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-% Insert confusion matrix or plots here
-\begin{figure}[H]
+% ====================== Full Confusion Matrices (Part 1) ======================
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.6\textwidth]{confusion_matrix_example.png}
-\caption{Example confusion matrix (e.g., ResNet18 on CIFAR-100, 10-class subset)}
+\captionsetup[subfigure]{labelformat=empty}
+
+% First row
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_convnext_full.png}
+\caption{ConvNeXt}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_vit_full.png}
+\caption{Vision Transformer}
+\end{subfigure}
+
+\vspace{0.2cm} % Minimal spacing
+
+% Second row
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_swin_full.png}
+\caption{Swin Transformer}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_efficientnetb0_full.png}
+\caption{EfficientNetB0}
+\end{subfigure}
+
+\caption{Confusion matrices (Part 1): High-performance models.}
+\label{fig:confusion_part1}
+\end{figure}
+
+% ====================== Full Confusion Matrices (Part 2) ======================
+\begin{figure}[htbp]
+\centering
+\captionsetup[subfigure]{labelformat=empty}
+
+% Third row
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_densenet121_full.png}
+\caption{DenseNet121}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_customcnn_full.png}
+\caption{Custom CNN}
+\end{subfigure}
+
+\vspace{0.2cm}
+
+% Fourth row
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_resnet18_full.png}
+\caption{ResNet18}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_vgg16_full.png}
+\caption{VGG16}
+\end{subfigure}
+
+\caption{Confusion matrices (Part 2): Moderate and lower-performance models.}
+\label{fig:confusion_part2}
+\end{figure}
+
+% ====================== Top Confused Classes (Part 1) ======================
+\begin{figure}[htbp]
+\centering
+\captionsetup[subfigure]{labelformat=empty}
+
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_convnext_top_confused.png}
+\caption{ConvNeXt}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_vit_top_confused.png}
+\caption{Vision Transformer}
+\end{subfigure}
+
+\vspace{0.2cm}
+
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_swin_top_confused.png}
+\caption{Swin Transformer}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_efficientnetb0_top_confused.png}
+\caption{EfficientNetB0}
+\end{subfigure}
+
+\caption{Top confused classes (Part 1).}
+\label{fig:top_confused_part1}
+\end{figure}
+
+% ====================== Top Confused Classes (Part 2) ======================
+\begin{figure}[htbp]
+\centering
+\captionsetup[subfigure]{labelformat=empty}
+
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_densenet121_top_confused.png}
+\caption{DenseNet121}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_customcnn_top_confused.png}
+\caption{Custom CNN}
+\end{subfigure}
+
+\vspace{0.2cm}
+
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_resnet18_top_confused.png}
+\caption{ResNet18}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\includegraphics[width=\textwidth]{confusion_matrix_vgg16_top_confused.png}
+\caption{VGG16}
+\end{subfigure}
+
+\caption{Top confused classes (Part 2).}
+\label{fig:top_confused_part2}
 \end{figure}
 
 \section{Discussion}
 
 \subsection*{Model Comparison}
-Among the evaluated models, the Vision Transformer (ViT) achieved the highest classification accuracy of 89.86\%, closely followed by the Swin Transformer and ConvNeXt, which also demonstrated excellent performance. DenseNet121 and EfficientNetB0 showed competitive results with good generalization capabilities, although they lagged slightly behind the transformer-based models.
+Among the evaluated models, the Vision Transformer (ViT) achieved the highest classification accuracy of 89.86\%, closely followed by the Swin Transformer and ConvNeXt. DenseNet121 and EfficientNetB0 showed competitive results with good generalization capabilities. ResNet18 and VGG16 performed reasonably well, while the Custom CNN lagged significantly behind due to its simpler architecture and lack of pretraining.
 
 \subsection*{Hyperparameter Tuning}
 Experiments with different learning rates, batch sizes, and optimizers revealed:
